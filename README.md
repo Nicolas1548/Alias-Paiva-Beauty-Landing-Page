@@ -1,7 +1,7 @@
 # Alias Paiva Beauty
 
 Site portfólio da Alias Paiva Beauty, estúdio de lash design e sobrancelhas em Ipatinga, MG.
-https://aliaspaivabeauty.tech/
+\n aliaspaivabeauty.tech/
 
 ## Sobre o site
 
