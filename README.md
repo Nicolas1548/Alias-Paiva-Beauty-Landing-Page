@@ -1,8 +1,8 @@
 # Alias Paiva Beauty
 
 Site portfólio da Alias Paiva Beauty, estúdio de lash design e sobrancelhas em Ipatinga, MG.
-\n aliaspaivabeauty.tech/
 
+## https://aliaspaivabeauty.tech/
 ## Sobre o site
 
 Uma página única, pensada para apresentar o trabalho da Alias e facilitar o agendamento de clientes. O visual segue uma paleta em lilás delicado com detalhes dourados, tipografia serifada elegante e uma mariposa como símbolo de marca.
