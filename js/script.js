@@ -9,6 +9,21 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal, .lash-divider').forEach((el) => observer.observe(el));
 
+// Header Transparency & Blur on Scroll
+const header = document.querySelector('header');
+if (header) {
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+}
+
 // Lightbox Modal Implementation
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');

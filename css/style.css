@@ -108,11 +108,18 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(251, 247, 252, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
+  background: transparent;
+  border-bottom: 1px solid transparent;
   padding-top: env(safe-area-inset-top, 0px);
+  transition: background .35s ease, backdrop-filter .35s ease, -webkit-backdrop-filter .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+header.scrolled {
+  background: rgba(251, 247, 252, 0.72);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom-color: rgba(43, 30, 51, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(124, 79, 160, 0.12);
 }
 
 .nav-inner {
@@ -123,6 +130,11 @@ header {
   max-width: 1120px;
   margin: 0 auto;
   gap: 12px;
+  transition: padding .35s ease;
+}
+
+header.scrolled .nav-inner {
+  padding: 10px 18px;
 }
 
 .logotype {
@@ -1077,8 +1089,8 @@ body.lightbox-open .whatsapp-float {
 
   .hero-photo {
     order: -1;
-    aspect-ratio: 16/11;
-    max-width: 360px;
+    aspect-ratio: 1 / 1;
+    max-width: 440px;
     margin: 0 auto;
     border-radius: 24px;
   }
@@ -1146,11 +1158,11 @@ body.lightbox-open .whatsapp-float {
   }
 
   .hero-photo {
-    max-width: 320px;
+    max-width: 380px;
     width: 100%;
-    aspect-ratio: 16/11;
+    aspect-ratio: 1 / 1;
     margin: 0 auto;
-    border-radius: 20px;
+    border-radius: 24px;
   }
 
   .hero-copy {
@@ -1338,7 +1350,8 @@ body.lightbox-open .whatsapp-float {
   }
 
   .hero-photo {
-    max-width: 270px;
+    max-width: 100%;
+    border-radius: 20px;
   }
 
   .gallery-grid {
