@@ -187,3 +187,33 @@ if (lightbox && galleryItems.length > 0) {
     }
   }, { passive: true });
 }
+
+// FAQ Accordion
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach((item) => {
+  const btn = item.querySelector('.faq-question');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const isExpanded = item.classList.contains('active');
+
+    // Fecha outros itens para comportamento harmônico de sanfona
+    faqItems.forEach((other) => {
+      if (other !== item) {
+        other.classList.remove('active');
+        const otherBtn = other.querySelector('.faq-question');
+        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Alterna o item atual
+    if (isExpanded) {
+      item.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      item.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+

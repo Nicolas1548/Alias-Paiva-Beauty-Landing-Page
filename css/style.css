@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -149,6 +150,43 @@ header.scrolled .nav-inner {
 
 .logotype .dot {
   color: var(--lilac-deep);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--plum-soft);
+  position: relative;
+  padding: 6px 2px;
+  transition: color .25s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--lilac-deep);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--lilac-deep);
+  border-radius: 2px;
+  transition: width .25s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-cta {
@@ -490,6 +528,42 @@ section {
 
 .course .section-head {
   max-width: 720px;
+}
+
+.course-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.course-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--plum);
+  box-shadow: 0 4px 16px -6px rgba(124, 79, 160, 0.1);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.course-badge:hover {
+  transform: translateY(-2px);
+  border-color: var(--lilac);
+  box-shadow: 0 10px 24px -8px rgba(124, 79, 160, 0.2);
+}
+
+.course-badge-icon {
+  width: 17px;
+  height: 17px;
+  color: var(--lilac-deep);
+  flex-shrink: 0;
 }
 
 .course-grid {
@@ -942,6 +1016,96 @@ dialog.lightbox::backdrop {
   }
 }
 
+/* ---------- FAQ ACCORDION ---------- */
+.faq {
+  background: var(--cream-2);
+}
+
+.faq-accordion {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px -12px rgba(124, 79, 160, 0.08);
+  transition: border-color .3s ease, box-shadow .3s ease, transform .25s ease;
+  overflow: hidden;
+}
+
+.faq-item:hover,
+.faq-item.active {
+  border-color: rgba(180, 143, 206, 0.45);
+  box-shadow: 0 14px 34px -12px rgba(124, 79, 160, 0.16);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.06rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  color: var(--plum);
+  gap: 16px;
+  transition: color .25s ease;
+}
+
+.faq-question:hover,
+.faq-item.active .faq-question {
+  color: var(--lilac-deep);
+}
+
+.faq-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--lilac-deep);
+  flex-shrink: 0;
+  transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.active .faq-answer-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer {
+  overflow: hidden;
+}
+
+.faq-answer-content {
+  padding: 0 28px 24px;
+  color: var(--plum-soft);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  border-top: 1px solid rgba(43, 30, 51, 0.06);
+  padding-top: 16px;
+}
+
+.faq-answer-content strong {
+  color: var(--plum);
+}
+
 /* ---------- CTA BAND ---------- */
 .cta-band {
   background: linear-gradient(120deg, var(--lilac-deep), #9A6BBD 60%, var(--gold));
@@ -1144,12 +1308,22 @@ body.lightbox-open .whatsapp-float {
   }
 
   .nav-inner {
-    padding: 12px 16px;
+    padding: 11px 14px;
+    gap: 8px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-link {
+    font-size: 0.78rem;
   }
 
   .nav-cta {
-    padding: 9px 15px;
-    font-size: 0.78rem;
+    padding: 8px 12px;
+    font-size: 0.76rem;
+    min-height: 38px;
   }
 
   .hero {
@@ -1268,6 +1442,22 @@ body.lightbox-open .whatsapp-float {
     line-height: 1.65;
   }
 
+  .course-badges {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .course-badge {
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    gap: 6px;
+  }
+
+  .course-badge-icon {
+    width: 15px;
+    height: 15px;
+  }
+
   .course-cta-box {
     padding: 28px 20px;
     border-radius: 18px;
@@ -1285,6 +1475,21 @@ body.lightbox-open .whatsapp-float {
 
   .gallery-item {
     border-radius: 14px;
+  }
+
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 1.05rem;
+  }
+
+  .faq-answer-content {
+    padding: 0 20px 20px;
+    font-size: 0.92rem;
+    padding-top: 14px;
+  }
+
+  .faq-item {
+    border-radius: 16px;
   }
 
   .cta-band {
@@ -1340,9 +1545,21 @@ body.lightbox-open .whatsapp-float {
     font-size: 0.95rem;
   }
 
-  .nav-cta {
-    padding: 8px 12px;
+  .logotype .brand-suffix {
+    display: none;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-link {
     font-size: 0.74rem;
+  }
+
+  .nav-cta {
+    padding: 7px 10px;
+    font-size: 0.72rem;
   }
 
   .hero-copy h1 {
