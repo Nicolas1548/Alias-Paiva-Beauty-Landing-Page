@@ -1,4 +1,3 @@
-User-agent: *
-Allow: /
+
 
 Sitemap: https://aliaspaivabeauty.tech/sitemap.xml
