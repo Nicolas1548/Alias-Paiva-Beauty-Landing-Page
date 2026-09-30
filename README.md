@@ -1,5 +1,6 @@
 # 🦋 Alias Paiva Beauty
 
+
 ![GitHub Pages](https://img.shields.io/badge/deploy-github--pages-success)
 ![HTML](https://img.shields.io/badge/HTML-44.3%25-orange)
 ![CSS](https://img.shields.io/badge/CSS-54.5%25-blueviolet)
