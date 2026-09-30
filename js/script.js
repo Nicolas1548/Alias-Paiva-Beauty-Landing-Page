@@ -1,219 +1,237 @@
-// Scroll Reveal Observer
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((e) => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in-view');
-    }
-  });
-}, { threshold: 0.15 });
+/* =====================================================
+   Alias Paiva Beauty — script.js
+   Protótipo 3: Hero tela cheia + cartões
+   ===================================================== */
 
-document.querySelectorAll('.reveal, .lash-divider').forEach((el) => observer.observe(el));
+(function () {
+  'use strict';
 
-// Header Transparency & Blur on Scroll
-const header = document.querySelector('header');
-if (header) {
-  const handleScroll = () => {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+  /* ─────────────────────────────────────────────────
+     1. WhatsApp links
+     ───────────────────────────────────────────────── */
+  var WA  = 'https://api.whatsapp.com/send/?phone=553180142400&text=';
+  var MSG = {
+    agendar : 'Olá! Vim pelo site e quero agendar um horário \uD83D\uDC9C',
+    curso   : 'Olá! Vim pelo site e quero minha vaga no Curso VIP de Extensão de Cílios \uD83D\uDC9C'
   };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-}
-
-// Lightbox Modal Implementation
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxCounter = document.getElementById('lightbox-counter');
-const lightboxClose = document.getElementById('lightbox-close');
-const lightboxPrev = document.getElementById('lightbox-prev');
-const lightboxNext = document.getElementById('lightbox-next');
-const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-
-if (lightbox && galleryItems.length > 0) {
-  const galleryData = galleryItems.map((item) => {
-    const img = item.querySelector('img');
-    return {
-      src: img ? img.getAttribute('src') : '',
-      alt: img ? img.getAttribute('alt') : '',
-      element: item
-    };
+  document.querySelectorAll('[data-wa]').forEach(function (a) {
+    var key  = a.getAttribute('data-msg') || 'agendar';
+    a.href   = WA + encodeURIComponent(MSG[key]);
+    a.target = '_blank';
+    a.rel    = 'noopener';
   });
 
-  let currentIndex = 0;
-  let lastFocusedItem = null;
+  /* ─────────────────────────────────────────────────
+     2. Navbar — adiciona classe "scrolled" ao rolar
+     ───────────────────────────────────────────────── */
+  var navbar = document.getElementById('navbar');
 
-  function preloadImage(src) {
-    if (!src) return;
-    const img = new Image();
-    img.src = src;
+  window.addEventListener('scroll', function () {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ─────────────────────────────────────────────────
+     3. Menu mobile
+     ───────────────────────────────────────────────── */
+  var hamBtn     = document.getElementById('hamBtn');
+  var closeBtn   = document.getElementById('closeMenu');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    hamBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
   }
 
-  function renderLightbox(index) {
-    currentIndex = (index + galleryData.length) % galleryData.length;
-    const current = galleryData[currentIndex];
-
-    lightboxImg.classList.add('switching');
-
-    // Atualiza imagem e contador
-    setTimeout(() => {
-      lightboxImg.src = current.src;
-      lightboxImg.alt = current.alt;
-      lightboxCounter.textContent = `${currentIndex + 1} / ${galleryData.length}`;
-      lightboxImg.classList.remove('switching');
-    }, 90);
-
-    // Pré-carrega as imagens adjacente para navegação instantânea
-    const nextIndex = (currentIndex + 1) % galleryData.length;
-    const prevIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
-    preloadImage(galleryData[nextIndex].src);
-    preloadImage(galleryData[prevIndex].src);
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    hamBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
   }
 
-  function openLightbox(index) {
-    lastFocusedItem = document.activeElement;
-    renderLightbox(index);
+  hamBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
 
-    if (typeof lightbox.showModal === 'function') {
-      lightbox.showModal();
-    } else {
-      lightbox.setAttribute('open', '');
+  // Fecha ao clicar em qualquer link dentro do menu
+  mobileMenu.querySelectorAll('.menu-link, .btn').forEach(function (el) {
+    el.addEventListener('click', closeMenu);
+  });
+
+  // Fecha com a tecla Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  /* ─────────────────────────────────────────────────
+     4. Scroll Reveal com IntersectionObserver
+     ───────────────────────────────────────────────── */
+  var reveals = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold  : 0.12,
+      rootMargin : '0px 0px -40px 0px'
+    });
+
+    reveals.forEach(function (el) { observer.observe(el); });
+  } else {
+    // Fallback para navegadores antigos
+    reveals.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ─────────────────────────────────────────────────
+     5. Galeria — dots de navegação
+     ───────────────────────────────────────────────── */
+  var scroller = document.getElementById('galScroller');
+  var dots     = document.querySelectorAll('#scrollerDots .dot');
+  var tiles    = scroller ? scroller.querySelectorAll('.gal-tile') : [];
+
+  if (scroller && dots.length) {
+
+    function updateDots() {
+      var scrollLeft = scroller.scrollLeft;
+      var active = 0;
+      var minDiff = Infinity;
+      tiles.forEach(function (tile, i) {
+        var diff = Math.abs((tile.offsetLeft - scroller.offsetLeft) - scrollLeft);
+        if (diff < minDiff) {
+          minDiff = diff;
+          active = i;
+        }
+      });
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('active', i === active);
+      });
     }
 
-    document.body.classList.add('lightbox-open');
-    if (lightboxClose) lightboxClose.focus();
+    scroller.addEventListener('scroll', updateDots, { passive: true });
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        if (tiles[i]) {
+          scroller.scrollTo({
+            left: tiles[i].offsetLeft - scroller.offsetLeft,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+
+  /* ─────────────────────────────────────────────────
+     6. Lightbox da Galeria (abrir fotos em tela cheia)
+     ───────────────────────────────────────────────── */
+  var lightbox  = document.getElementById('galLightbox');
+  var lbImg     = document.getElementById('lbImg');
+  var lbCounter = document.getElementById('lbCounter');
+  var lbClose   = document.getElementById('lbClose');
+  var lbPrev    = document.getElementById('lbPrev');
+  var lbNext    = document.getElementById('lbNext');
+  var curIndex  = 0;
+
+  var galImages = [];
+  tiles.forEach(function (tile, i) {
+    var img = tile.querySelector('img');
+    if (img) {
+      galImages.push(img.src);
+      tile.style.cursor = 'zoom-in';
+      tile.addEventListener('click', function () {
+        openLightbox(i);
+      });
+    }
+  });
+
+  function openLightbox(index) {
+    if (!lightbox || !galImages.length) return;
+    curIndex = (index + galImages.length) % galImages.length;
+    showImage(curIndex);
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeLightbox() {
-    if (typeof lightbox.close === 'function') {
-      lightbox.close();
-    } else {
-      lightbox.removeAttribute('open');
-    }
-    document.body.classList.remove('lightbox-open');
+    if (!lightbox) return;
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
 
-    if (lastFocusedItem && typeof lastFocusedItem.focus === 'function') {
-      lastFocusedItem.focus();
+  function showImage(index) {
+    curIndex = (index + galImages.length) % galImages.length;
+    if (lbImg) {
+      lbImg.style.opacity = '0.3';
+      lbImg.src = galImages[curIndex];
+      lbImg.onload = function () {
+        lbImg.style.opacity = '1';
+      };
+    }
+    if (lbCounter) {
+      lbCounter.textContent = (curIndex + 1) + ' / ' + galImages.length;
     }
   }
 
-  // Eventos de clique e acessibilidade nos itens da galeria
-  galleryItems.forEach((item, index) => {
-    item.addEventListener('click', () => openLightbox(index));
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openLightbox(index);
+  if (lbClose) lbClose.addEventListener('click', closeLightbox);
+  if (lbPrev)  lbPrev.addEventListener('click', function (e) { e.stopPropagation(); showImage(curIndex - 1); });
+  if (lbNext)  lbNext.addEventListener('click', function (e) { e.stopPropagation(); showImage(curIndex + 1); });
+
+  if (lightbox) {
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox || e.target.id === 'lbContent') {
+        closeLightbox();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox || !lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showImage(curIndex - 1);
+    if (e.key === 'ArrowRight') showImage(curIndex + 1);
+  });
+
+  // Touch swipe para celulares
+  var touchStartX = 0;
+  if (lightbox) {
+    lightbox.addEventListener('touchstart', function (e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', function (e) {
+      var touchEndX = e.changedTouches[0].screenX;
+      var diffX = touchEndX - touchStartX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX < 0) showImage(curIndex + 1);
+        else showImage(curIndex - 1);
+      }
+    }, { passive: true });
+  }
+
+  /* ─────────────────────────────────────────────────
+     7. FAQ — fecha outros itens ao abrir um
+     ───────────────────────────────────────────────── */
+  var faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(function (item) {
+    item.addEventListener('toggle', function () {
+      if (item.open) {
+        faqItems.forEach(function (other) {
+          if (other !== item) other.open = false;
+        });
       }
     });
   });
 
-  // Botões do Lightbox
-  if (lightboxClose) {
-    lightboxClose.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeLightbox();
-    });
-  }
-
-  if (lightboxPrev) {
-    lightboxPrev.addEventListener('click', (e) => {
-      e.stopPropagation();
-      renderLightbox(currentIndex - 1);
-    });
-  }
-
-  if (lightboxNext) {
-    lightboxNext.addEventListener('click', (e) => {
-      e.stopPropagation();
-      renderLightbox(currentIndex + 1);
-    });
-  }
-
-  // Navegação por teclado global
-  window.addEventListener('keydown', (e) => {
-    if (!lightbox.open) return;
-
-    if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      renderLightbox(currentIndex + 1);
-    } else if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      renderLightbox(currentIndex - 1);
-    } else if (e.key === 'Escape') {
-      closeLightbox();
-    }
-  });
-
-  // Fecha ao clicar fora do conteúdo (backdrop click)
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  lightbox.addEventListener('close', () => {
-    document.body.classList.remove('lightbox-open');
-  });
-
-  // Suporte a gestos touch (Swipe) em dispositivos móveis
-  let touchStartX = 0;
-  let touchEndX = 0;
-  let touchStartY = 0;
-  let touchEndY = 0;
-
-  lightbox.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
-  }, { passive: true });
-
-  lightbox.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
-
-    const diffX = touchEndX - touchStartX;
-    const diffY = touchEndY - touchStartY;
-
-    // Apenas considera swipe horizontal se a variação for maior que o movimento vertical
-    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
-      if (diffX < 0) {
-        renderLightbox(currentIndex + 1); // deslizar para esquerda -> próxima
-      } else {
-        renderLightbox(currentIndex - 1); // deslizar para direita -> anterior
-      }
-    }
-  }, { passive: true });
-}
-
-// FAQ Accordion
-const faqItems = document.querySelectorAll('.faq-item');
-faqItems.forEach((item) => {
-  const btn = item.querySelector('.faq-question');
-  if (!btn) return;
-
-  btn.addEventListener('click', () => {
-    const isExpanded = item.classList.contains('active');
-
-    // Fecha outros itens para comportamento harmônico de sanfona
-    faqItems.forEach((other) => {
-      if (other !== item) {
-        other.classList.remove('active');
-        const otherBtn = other.querySelector('.faq-question');
-        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Alterna o item atual
-    if (isExpanded) {
-      item.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-    } else {
-      item.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-    }
-  });
-});
-
+})();
