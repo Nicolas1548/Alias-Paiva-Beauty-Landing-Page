@@ -245,10 +245,14 @@ h1, h2, h3, h4 {
 .about-sig span { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.2rem; color: var(--lilac); }
 
 /* ── Services ── */
+#services {
+  background: #F6F0F9;
+}
 #services .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.5rem; }
 .service-card {
   background: #fff; border: 1px solid var(--border); border-radius: 28px; padding: 2.2rem 1.8rem;
   position: relative; overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: 0 4px 20px rgba(123,85,184,.05);
   transition: transform .3s var(--expo), box-shadow .3s var(--expo), border-color .3s;
 }
 .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(123,85,184,.1); border-color: rgba(123,85,184,.3); }
