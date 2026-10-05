@@ -51,10 +51,12 @@
           var target = document.querySelector(href);
           if (target) {
             e.preventDefault();
-            lenis.scrollTo(target, { offset: -70 });
+            // Fecha o menu ANTES de rolar: com o menu aberto o Lenis
+            // está parado (lenis.stop()) e ignoraria o scrollTo.
             if (mobileMenu && mobileMenu.classList.contains('open')) {
               closeMenu();
             }
+            lenis.scrollTo(target, { offset: -70 });
           }
         }
       });
