@@ -1,25 +1,20 @@
-/* =====================================================
-   Alias Paiva Beauty — script.js
-   Protótipo 3: Hero tela cheia + cartões
-   ===================================================== */
-
 (function () {
   'use strict';
 
   /* ─────────────────────────────────────────────────
      1. WhatsApp links
      ───────────────────────────────────────────────── */
-  var WA  = 'https://api.whatsapp.com/send/?phone=553180142400&text=';
+  var WA = 'https://api.whatsapp.com/send/?phone=553180142400&text=';
   var MSG = {
-    agendar : 'Olá! Vim pelo site e quero agendar um horário \uD83D\uDC9C',
-    curso   : 'Olá! Vim pelo site e quero minha vaga no Curso VIP de Extensão de Cílios \uD83D\uDC9C'
+    agendar: 'Olá! Vim pelo site e quero agendar um horário \uD83D\uDC9C',
+    curso: 'Olá! Vim pelo site e quero minha vaga no Curso VIP de Extensão de Cílios \uD83D\uDC9C'
   };
 
   document.querySelectorAll('[data-wa]').forEach(function (a) {
-    var key  = a.getAttribute('data-msg') || 'agendar';
-    a.href   = WA + encodeURIComponent(MSG[key]);
+    var key = a.getAttribute('data-msg') || 'agendar';
+    a.href = WA + encodeURIComponent(MSG[key]);
     a.target = '_blank';
-    a.rel    = 'noopener';
+    a.rel = 'noopener';
   });
 
   /* ─────────────────────────────────────────────────
@@ -71,8 +66,8 @@
   /* ─────────────────────────────────────────────────
      3. Menu mobile
      ───────────────────────────────────────────────── */
-  var hamBtn     = document.getElementById('hamBtn');
-  var closeBtn   = document.getElementById('closeMenu');
+  var hamBtn = document.getElementById('hamBtn');
+  var closeBtn = document.getElementById('closeMenu');
   var mobileMenu = document.getElementById('mobileMenu');
 
   function openMenu() {
@@ -94,13 +89,13 @@
   /* ─────────────────────────────────────────────────
      Parallax suave no Hero e na seção Sobre
      ───────────────────────────────────────────────── */
-  var heroBg       = document.getElementById('heroBg');
-  var heroContent  = document.querySelector('.hero-content');
-  var heroSection  = document.getElementById('hero');
+  var heroBg = document.getElementById('heroBg');
+  var heroContent = document.querySelector('.hero-content');
+  var heroSection = document.getElementById('hero');
   var aboutSection = document.getElementById('about');
-  var fcR          = document.querySelector('.float-card.fc-r');
-  var fcE          = document.querySelector('.float-card.fc-e');
-  var aboutImg     = document.querySelector('.photo-placeholder img');
+  var fcR = document.querySelector('.float-card.fc-r');
+  var fcE = document.querySelector('.float-card.fc-e');
+  var aboutImg = document.querySelector('.photo-placeholder img');
 
   function updateParallax() {
     var scrollY = window.scrollY || window.pageYOffset || 0;
@@ -216,8 +211,8 @@
         }
       });
     }, {
-      threshold  : 0.12,
-      rootMargin : '0px 0px -40px 0px'
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
     });
 
     reveals.forEach(function (el) { observer.observe(el); });
@@ -232,8 +227,8 @@
      5. Galeria — Dots, Drag-to-Scroll e Efeito de Foco
      ───────────────────────────────────────────────── */
   var scroller = document.getElementById('galScroller');
-  var dots     = document.querySelectorAll('#scrollerDots .dot');
-  var tiles    = scroller ? scroller.querySelectorAll('.gal-tile') : [];
+  var dots = document.querySelectorAll('#scrollerDots .dot');
+  var tiles = scroller ? scroller.querySelectorAll('.gal-tile') : [];
   var hasMoved = false;
 
   if (scroller && dots.length) {
@@ -316,7 +311,7 @@
      ───────────────────────────────────────────────── */
   var courseItems = document.querySelectorAll('.course-list li');
   var coursePills = document.querySelectorAll('.course-pills .c-pill');
-  var courseCard  = document.querySelector('.course-card');
+  var courseCard = document.querySelector('.course-card');
 
   if (courseItems.length && coursePills.length && 'IntersectionObserver' in window) {
     var courseObserver = new IntersectionObserver(function (entries) {
@@ -347,13 +342,13 @@
   /* ─────────────────────────────────────────────────
      7. Lightbox da Galeria (abrir fotos em tela cheia)
      ───────────────────────────────────────────────── */
-  var lightbox  = document.getElementById('galLightbox');
-  var lbImg     = document.getElementById('lbImg');
+  var lightbox = document.getElementById('galLightbox');
+  var lbImg = document.getElementById('lbImg');
   var lbCounter = document.getElementById('lbCounter');
-  var lbClose   = document.getElementById('lbClose');
-  var lbPrev    = document.getElementById('lbPrev');
-  var lbNext    = document.getElementById('lbNext');
-  var curIndex  = 0;
+  var lbClose = document.getElementById('lbClose');
+  var lbPrev = document.getElementById('lbPrev');
+  var lbNext = document.getElementById('lbNext');
+  var curIndex = 0;
 
   var galImages = [];
   tiles.forEach(function (tile, i) {
@@ -399,8 +394,8 @@
   }
 
   if (lbClose) lbClose.addEventListener('click', closeLightbox);
-  if (lbPrev)  lbPrev.addEventListener('click', function (e) { e.stopPropagation(); showImage(curIndex - 1); });
-  if (lbNext)  lbNext.addEventListener('click', function (e) { e.stopPropagation(); showImage(curIndex + 1); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); showImage(curIndex - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); showImage(curIndex + 1); });
 
   if (lightbox) {
     lightbox.addEventListener('click', function (e) {
