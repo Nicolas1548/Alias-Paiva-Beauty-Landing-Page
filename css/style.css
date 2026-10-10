@@ -603,6 +603,17 @@ h4 {
   transition: box-shadow .3s, transform .12s ease-out;
 }
 
+a.float-card {
+  display: block;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.float-card:hover {
+  box-shadow: 0 14px 44px rgba(30, 15, 51, .25);
+}
+
 .float-card strong {
   display: block;
   font-size: 1.5rem;
