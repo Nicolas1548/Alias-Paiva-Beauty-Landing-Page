@@ -7,7 +7,7 @@
 Site oficial de Alias Paiva, Lash Designer em Ipatinga, MG.
 Extensão de cílios fio a fio, design de sobrancelhas e Curso VIP para iniciantes.
 
-[🌐 Ver o site](https://aliaspaivabeauty.tech/) · [📸 Instagram](https://www.instagram.com/_aliaspaivabeauty/) · [💬 Agendar no WhatsApp](https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C)
+[🌐 Ver o site](https://aliaspaivabeauty.tech/) · [📸 Instagram](https://www.instagram.com/_aliaspaiva/) · [💬 Agendar no WhatsApp](https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C)
 
 ⭐ 5.0 no Google · 56 avaliações
 
@@ -100,7 +100,7 @@ Java é a minha linguagem principal, e este projeto mostra o lado front-end do q
 ## 📍 Contato da marca
 
 - Ipatinga, MG
-- Instagram: [@_aliaspaivabeauty](https://www.instagram.com/_aliaspaivabeauty/)
+- Instagram: [@_aliaspaiva](https://www.instagram.com/_aliaspaiva/)
 - WhatsApp: [agendar horário](https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C)
 - Avaliações: [Google](https://share.google/A0g5crnLHBTmJMWZh)
 
