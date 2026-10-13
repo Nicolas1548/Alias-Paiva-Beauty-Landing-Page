@@ -9,7 +9,7 @@ Extensão de cílios fio a fio, design de sobrancelhas e Curso VIP para iniciant
 
 [🌐 Ver o site](https://aliaspaivabeauty.tech/) · [📸 Instagram](https://www.instagram.com/_aliaspaiva/) · [💬 Agendar no WhatsApp](https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C)
 
-⭐ 5.0 no Google · 56 avaliações
+⭐ 5.0 no Google · 73 avaliações
 
 </div>
 
@@ -93,7 +93,7 @@ Acesse `http://localhost:8000`.
 
 ## 👨‍💻 Desenvolvedor
 
-Feito com carinho por **Nicolas Gabriel Silva Ramos**.
+Feito com carinho por **Nicolas Gabriel**.
 
 Java é a minha linguagem principal, e este projeto mostra o lado front-end do que eu construo: do layout ao SEO e à publicação.
 
