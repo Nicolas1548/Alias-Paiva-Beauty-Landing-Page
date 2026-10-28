@@ -964,6 +964,86 @@ a.float-card:hover {
   display: inline;
 }
 
+/* Destaque de Avaliação de Aluna no Curso VIP */
+.course-review {
+  margin-top: 2.2rem;
+  padding: 1.4rem 1.5rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .018));
+  border: 1px solid rgba(201, 164, 95, .24);
+  border-left: 3px solid var(--gold2);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.course-review-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-bottom: .75rem;
+}
+
+.course-review-stars {
+  color: var(--gold2);
+  font-size: .95rem;
+  letter-spacing: .1em;
+}
+
+.course-review-tag {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  background: rgba(201, 164, 95, .14);
+  border: 1px solid rgba(201, 164, 95, .28);
+  padding: .22rem .68rem;
+  border-radius: 999px;
+}
+
+.course-review-quote {
+  color: rgba(246, 239, 230, .86);
+  font-size: .92rem;
+  line-height: 1.65;
+  font-style: italic;
+  margin: 0 0 1rem;
+}
+
+.course-review-author {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+
+.course-review-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E3C07E, #C9A45F);
+  color: var(--plum);
+  font-weight: 700;
+  font-size: .85rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.course-review-meta strong {
+  display: block;
+  color: var(--cream);
+  font-size: .88rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.course-review-meta span {
+  display: block;
+  color: rgba(246, 239, 230, .55);
+  font-size: .75rem;
+}
+
 /* Card VIP Unificado */
 .course-card {
   background: linear-gradient(145deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .02));
