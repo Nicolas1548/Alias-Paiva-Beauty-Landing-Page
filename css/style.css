@@ -32,6 +32,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   -webkit-font-smoothing: antialiased;
+  background: var(--plum);
 }
 
 /* ── Lenis Smooth Scroll ── */
@@ -176,13 +177,19 @@ h4 {
 }
 
 /* Botão Agendar na navbar — sem brilho excessivo */
+#navbar nav a.btn-gold {
+  color: var(--plum);
+}
+
 #navbar .btn-gold.btn-nav {
   padding: .65rem 1.25rem;
   font-size: .88rem;
   box-shadow: none;
+  color: var(--plum);
 }
 
 #navbar .btn-gold:hover {
+  color: var(--plum);
   box-shadow: 0 4px 16px rgba(201, 164, 95, .3);
 }
 
@@ -320,7 +327,8 @@ h4 {
 /* ── Hero ── */
 #hero {
   position: relative;
-  min-height: 100svh;
+  min-height: 100vh;
+  min-height: 100lvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1341,16 +1349,14 @@ a.float-card:hover {
   transition: transform .35s var(--expo), box-shadow .35s, filter .35s;
   cursor: pointer;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .gal-tile.is-centered {
   transform: scale(1.02);
   box-shadow: 0 20px 48px rgba(123, 85, 184, .22);
-}
-
-.gal-tile:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(30, 15, 51, .15);
 }
 
 .gal-tile:focus-visible {
@@ -1364,10 +1370,19 @@ a.float-card:hover {
   object-fit: cover;
   display: block;
   transition: transform .6s var(--expo);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-.gal-tile:hover img {
-  transform: scale(1.06);
+@media (hover: hover) {
+  .gal-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(30, 15, 51, .15);
+  }
+
+  .gal-tile:hover img {
+    transform: scale(1.06);
+  }
 }
 
 .scroller-controls {
