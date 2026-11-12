@@ -291,17 +291,12 @@
   <a href="#about" class="skip-link">Pular para o conteúdo principal</a>
 
   <svg width="0" height="0" class="svg-sprite" aria-hidden="true">
-    <symbol id="eye" viewBox="0 -10 200 118">
-      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.6">
-        <path d="M14 62C60 24 140 24 186 62C140 98 60 98 14 62Z" />
-        <circle cx="100" cy="62" r="19" />
-        <circle cx="100" cy="62" r="7" fill="currentColor" />
-        <path
-          d="M28 50Q20 34 9 27M46 40Q40 21 29 11M66 33Q62 13 55 1M88 29Q86 9 83 -5M112 29Q115 9 120 -4M134 33Q142 14 153 4M154 40Q167 24 180 18M172 48Q185 36 197 34" />
-      </g>
-    </symbol>
     <symbol id="check" viewBox="0 0 24 24">
       <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="arrow-l" viewBox="0 0 24 24">
+      <path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
         stroke-linejoin="round" />
     </symbol>
     <symbol id="arrow-r" viewBox="0 0 24 24">
@@ -329,7 +324,7 @@
         <a href="#services">Serviços</a>
         <a href="#course">Curso VIP</a>
         <a href="#gallery">Galeria</a>
-        <a class="btn btn-primary btn-nav" data-wa
+        <a class="btn btn-gold btn-nav" data-wa
           href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C">Agendar</a>
       </nav>
       <button class="ham-btn" id="hamBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -353,7 +348,7 @@
     <a href="#services" class="menu-link">Serviços</a>
     <a href="#course" class="menu-link">Curso VIP</a>
     <a href="#gallery" class="menu-link">Galeria</a>
-    <a class="btn btn-primary btn-mobile-cta" data-wa
+    <a class="btn btn-gold btn-mobile-cta" data-wa
       href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C">Agendar
       no WhatsApp</a>
   </div>
@@ -374,31 +369,35 @@
 
       <!-- Conteúdo principal -->
       <div class="hero-content wrap">
-        <div class="hero-badge">Lash designer em Ipatinga, MG</div>
+        <div class="hero-badge">Estúdio &amp; Formação em Ipatinga, MG</div>
 
         <h1>
-          <span class="sr-only">Lash Designer e Extensão de Cílios em Ipatinga, MG — </span>Especialista em<br>
-          transformar a sua<br>
-          <em>autoestima.</em>
+          <span class="sr-only">Lash Designer e Extensão de Cílios em Ipatinga, MG — </span>Realce seu olhar
+          com naturalidade e <em>cuidado artesanal.</em>
         </h1>
 
         <p class="lead">
-          Extensão de cílios fio a fio e design de sobrancelhas, feitos à mão, olhar por olhar — para você se olhar no
-          espelho e se reconhecer mais bonita.
+          Extensão de cílios fio a fio e design de sobrancelhas, feitos à mão, olhar por olhar — atendimento
+          personalizado
+          no bairro Ideal e Curso VIP presencial em Ipatinga.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" data-wa
+          <a class="btn btn-gold" data-wa
             href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C">
             <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
               <use href="#wa" />
             </svg>
-            Agendar no WhatsApp
+            Agendar atendimento
           </a>
-          <a class="btn btn-ghost" href="https://www.instagram.com/_aliaspaiva/" target="_blank"
-            rel="noopener noreferrer">
-            Ver no Instagram
+          <a class="btn btn-ghost" href="#course">
+            Conhecer o Curso VIP
           </a>
+        </div>
+
+        <div class="hero-proof">
+          <span class="hero-proof-stars" aria-hidden="true">★★★★★</span>
+          <span><strong>5.0</strong> no Google · 76 avaliações · Desde 2021</span>
         </div>
       </div>
 
@@ -427,10 +426,10 @@
               <a class="float-card fc-r" href="https://share.google/0OluDglXw7XC698mP" target="_blank"
                 rel="noopener noreferrer" aria-label="Avaliações no Google - 5.0 estrelas em 76 avaliações">
                 <strong>5.0</strong>
-                <span>★★★★★<br>76 avaliações</span>
+                <span><span class="fc-stars" aria-hidden="true">★★★★★</span><br>76 avaliações</span>
               </a>
               <div class="float-card fc-e">
-                <strong>+5 anos</strong>
+                <strong>5 anos</strong>
                 <span>de experiência<br>dedicados a você</span>
               </div>
             </div>
@@ -439,9 +438,7 @@
             <div class="about-text reveal delay-2">
               <span class="section-label">Sobre o Estúdio</span>
               <h2 id="aboutTitle" class="section-title">
-                Aqui, cada cílio<br>
-                é colocado com<br>
-                calma e cuidado.
+                Aqui, cada cílio é colocado com calma e cuidado.
               </h2>
 
               <p class="about-first-p">
@@ -460,7 +457,7 @@
               </div>
 
               <div class="about-cta-wrap">
-                <a class="btn btn-lilac" data-wa
+                <a class="btn btn-plum" data-wa
                   href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C">
                   <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
                     <use href="#wa" />
@@ -478,57 +475,71 @@
       <section id="services" class="section" aria-labelledby="servicesTitle">
         <div class="wrap">
           <span class="section-label reveal">Serviços</span>
-          <h2 id="servicesTitle" class="section-title">Feito sob medida<br>para o seu olhar</h2>
+          <h2 id="servicesTitle" class="section-title">Feito sob medida para o seu olhar</h2>
 
           <div class="cards">
 
             <div class="service-card reveal delay-2">
-              <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 -10 200 118">
-                  <use href="#eye" />
-                </svg>
+              <div class="service-cover">
+                <img src="images/cilios_card.JPEG" alt="Resultado de extensão de cílios fio a fio por Alias Paiva"
+                  loading="lazy" decoding="async">
               </div>
-              <h3>Extensão de Cílios<br>Fio a Fio</h3>
-              <p>
-                Aplicação individual, respeitando a quantidade e a direção natural dos seus cílios. Resultado leve,
-                alongado, com aquele efeito de "acordei assim".
-              </p>
-              <span class="service-tag">Clássico · Personalizado</span>
+              <div class="service-body">
+                <h3>Extensão de Cílios Fio a Fio</h3>
+                <p>
+                  Aplicação individual, respeitando a quantidade e a direção natural dos seus cílios. Resultado leve,
+                  alongado, com aquele efeito de "acordei assim".
+                </p>
+                <div class="service-footer">
+                  <span class="service-tag">Clássico · Personalizado</span>
+                  <a class="service-cta" data-wa data-msg="cilios"
+                    href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20Extens%C3%A3o%20de%20C%C3%ADlios%20Fio%20a%20Fio%20%F0%9F%92%9C">
+                    Agendar cílios →
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div class="service-card reveal delay-3">
-              <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M12 22C17.523 22 22 17.523 22 12S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                  <path d="M8 12h8M12 8v8" />
-                </svg>
+              <div class="service-cover">
+                <img src="images/sobrancelhas_card.JPEG" alt="Resultado de design de sobrancelhas por Alias Paiva"
+                  loading="lazy" decoding="async">
               </div>
-              <h3>Design de<br>Sobrancelhas</h3>
-              <p>
-                Correção de fios, simetria e preenchimento pensados para o formato do seu rosto,
-                sem perder a naturalidade que te faz única.
-              </p>
-              <span class="service-tag">Design · Simetria</span>
+              <div class="service-body">
+                <h3>Design de Sobrancelhas</h3>
+                <p>
+                  Correção de fios, simetria e preenchimento pensados para o formato do seu rosto,
+                  sem perder a naturalidade que te faz única.
+                </p>
+                <div class="service-footer">
+                  <span class="service-tag">Design · Simetria</span>
+                  <a class="service-cta" data-wa data-msg="sobrancelhas"
+                    href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20Design%20de%20Sobrancelhas%20%F0%9F%92%9C">
+                    Agendar design →
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div class="service-card reveal delay-4">
-              <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M3 16c4-4.5 10-6 17-2.5" />
-                  <path d="M7 12.5l2-3.5" />
-                  <path d="M11 10.5l2-3.5" />
-                  <path d="M15 10.5l2-3" />
-                  <path d="M19 5l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" />
-                </svg>
+              <div class="service-cover">
+                <img src="images/brow_card.jpg" alt="Resultado de brow lamination por Alias Paiva" loading="lazy"
+                  decoding="async">
               </div>
-              <h3>Brow<br>Lamination</h3>
-              <p>
-                Alinhamento e efeito encorpado para os fios, proporcionando sobrancelhas mais cheias,
-                alinhadas e com acabamento impecável.
-              </p>
-              <span class="service-tag">Alinhamento · Volume</span>
+              <div class="service-body">
+                <h3>Brow Lamination</h3>
+                <p>
+                  Alinhamento e efeito encorpado para os fios, proporcionando sobrancelhas mais cheias,
+                  alinhadas e com acabamento impecável.
+                </p>
+                <div class="service-footer">
+                  <span class="service-tag">Alinhamento · Volume</span>
+                  <a class="service-cta" data-wa data-msg="brow"
+                    href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20Brow%20Lamination%20%F0%9F%92%9C">
+                    Agendar brow →
+                  </a>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -539,7 +550,7 @@
               Tem dúvidas sobre qual procedimento é ideal pra você?
               Me chama no WhatsApp e a gente conversa.
             </p>
-            <a class="btn btn-lilac btn-shrink-0" data-wa data-msg="duvida"
+            <a class="btn btn-plum btn-shrink-0" data-wa data-msg="duvida"
               href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20%F0%9F%92%9C">
               <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
                 <use href="#wa" />
@@ -554,10 +565,10 @@
 
     <section id="course" aria-labelledby="courseTitle">
 
-      <!-- Olho decorativo de fundo -->
-      <svg class="course-eye" aria-hidden="true" viewBox="0 -10 200 118">
-        <use href="#eye" />
-      </svg>
+      <!-- Vídeo de fundo (prática em modelo real) -->
+      <video class="course-bg-video" autoplay muted loop playsinline preload="metadata" poster="images/curso_poster.jpg" aria-hidden="true">
+        <source src="images/curso_bg.mp4" type="video/mp4">
+      </video>
 
       <div class="wrap">
         <div class="course-grid">
@@ -632,6 +643,11 @@
           <!-- Card VIP Unificado (Direita) -->
           <div class="course-right reveal delay-2">
             <div class="course-card">
+              <div class="course-card-cover">
+                <img src="images/curso_certificado.JPEG"
+                  alt="Aluna formada no Curso VIP segurando seu certificado oficial no Estúdio Alias Paiva"
+                  loading="lazy" decoding="async">
+              </div>
               <span class="course-card-badge">Exclusividade VIP</span>
               <h3 class="course-card-title">Imersão Presencial</h3>
               <p class="course-card-desc">
@@ -705,7 +721,7 @@
           <div class="gal-head reveal">
             <div>
               <span class="section-label">Portfólio</span>
-              <h2 id="galleryTitle" class="section-title">Alguns olhares que<br>já passaram por aqui</h2>
+              <h2 id="galleryTitle" class="section-title">Alguns olhares que já passaram por aqui</h2>
             </div>
             <a class="gal-link" href="https://www.instagram.com/_aliaspaiva/" target="_blank" rel="noopener noreferrer">
               Ver mais no Instagram
@@ -720,140 +736,139 @@
         <div class="scroller" id="galScroller" tabindex="0" aria-label="Galeria de trabalhos — role para o lado">
           <div class="gal-tile" role="button" tabindex="0"
             aria-label="Ampliar foto 1: Extensão de cílios e design de sobrancelhas personalizados">
-            <img src="images/Galeria15.jpeg" alt="Extensão de cílios e design de sobrancelhas personalizados por Alias Paiva"
-              width="576" height="1024" loading="lazy" decoding="async">
+            <img src="images/Galeria15.jpeg"
+              alt="Extensão de cílios e design de sobrancelhas personalizados por Alias Paiva" width="576" height="1024"
+              loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 2: Lash design marcante e alinhamento de sobrancelhas em Ipatinga">
-            <img src="images/Galeria16.jpeg" alt="Lash design marcante e alinhamento de sobrancelhas em Ipatinga por Alias Paiva" width="576"
+            aria-label="Ampliar foto 2: Extensão de cílios com efeito alongado e brow lamination">
+            <img src="images/Galeria22.jpg.JPEG"
+              alt="Extensão de cílios com efeito alongado e brow lamination por Alias Paiva" width="1980"
+              height="3520" loading="lazy" decoding="async">
+          </div>
+          <div class="gal-tile" role="button" tabindex="0"
+            aria-label="Ampliar foto 3: Lash design marcante e alinhamento de sobrancelhas em Ipatinga">
+            <img src="images/Galeria16.jpeg"
+              alt="Lash design marcante e alinhamento de sobrancelhas em Ipatinga por Alias Paiva" width="576"
               height="1024" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 3: Extensão de cílios fio a fio clássico em Ipatinga">
+            aria-label="Ampliar foto 4: Extensão de cílios fio a fio clássico em Ipatinga">
             <img src="images/Galeria1.jpg" alt="Extensão de cílios fio a fio clássico em Ipatinga por Alias Paiva"
               width="1280" height="960" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 4: Design de sobrancelhas e extensão de cílios natural">
+            aria-label="Ampliar foto 5: Design de sobrancelhas e extensão de cílios natural">
             <img src="images/Galeria2.jpg" alt="Design de sobrancelhas e extensão de cílios natural por Alias Paiva"
               width="720" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 5: Lash design personalizado com curvatura leve">
+            aria-label="Ampliar foto 6: Lash design personalizado com curvatura leve">
             <img src="images/Galeria3.jpeg"
               alt="Lash design personalizado com curvatura leve em Ipatinga por Alias Paiva" width="720" height="1280"
               loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 6: Extensão de cílios e alinhamento de sobrancelhas">
+            aria-label="Ampliar foto 7: Extensão de cílios e alinhamento de sobrancelhas">
             <img src="images/Galeria4.jpeg" alt="Extensão de cílios e alinhamento de sobrancelhas por Alias Paiva"
               width="720" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 7: Design de sobrancelhas com simetria facial e cílios">
+            aria-label="Ampliar foto 8: Design de sobrancelhas com simetria facial e cílios">
             <img src="images/Galeria5.jpg" alt="Design de sobrancelhas com simetria facial e cílios por Alias Paiva"
               width="1280" height="1120" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 8: Extensão de cílios efeito natural acordei assim">
+            aria-label="Ampliar foto 9: Extensão de cílios efeito natural acordei assim">
             <img src="images/Galeria6.jpeg" alt="Extensão de cílios efeito natural acordei assim por Alias Paiva"
               width="720" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 9: Alongamento de cílios fio a fio delicado">
+            aria-label="Ampliar foto 10: Alongamento de cílios fio a fio delicado">
             <img src="images/Galeria7.jpeg" alt="Alongamento de cílios fio a fio delicado em Ipatinga por Alias Paiva"
               width="720" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 10: Mapeamento de olhar e lash design sob medida">
+            aria-label="Ampliar foto 11: Mapeamento de olhar e lash design sob medida">
             <img src="images/Galeria8.JPEG" alt="Mapeamento de olhar e lash design sob medida por Alias Paiva"
               width="960" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 11: Brow lamination e extensão de cílios combinados">
+            aria-label="Ampliar foto 12: Brow lamination e extensão de cílios combinados">
             <img src="images/Galeria9.JPEG"
               alt="Brow lamination e extensão de cílios combinados em Ipatinga por Alias Paiva" width="1280"
               height="1266" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 12: Extensão de cílios fio a fio com acabamento leve">
+            aria-label="Ampliar foto 13: Extensão de cílios fio a fio com acabamento leve">
             <img src="images/Galeria10.jpg" alt="Extensão de cílios fio a fio com acabamento leve por Alias Paiva"
               width="1014" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 13: Lash design profissional valorizando o olhar">
+            aria-label="Ampliar foto 14: Lash design profissional valorizando o olhar">
             <img src="images/Galeria11.jpeg" alt="Lash design profissional valorizando o olhar por Alias Paiva"
               width="720" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 14: Design de sobrancelhas e extensão de cílios em Ipatinga">
+            aria-label="Ampliar foto 15: Design de sobrancelhas e extensão de cílios em Ipatinga">
             <img src="images/Galeria12.jpeg"
               alt="Design de sobrancelhas e extensão de cílios em Ipatinga por Alias Paiva" width="720" height="1280"
               loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 15: Brow lamination com fios alinhados e extensão de cílios">
+            aria-label="Ampliar foto 16: Brow lamination com fios alinhados e extensão de cílios">
             <img src="images/Galeria13.JPEG"
               alt="Brow lamination com fios alinhados e extensão de cílios por Alias Paiva" width="960" height="1280"
               loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 16: Detalhe de aplicação de cílios fio a fio sem excesso de peso">
+            aria-label="Ampliar foto 17: Detalhe de aplicação de cílios fio a fio sem excesso de peso">
             <img src="images/Galeria14.jpeg"
               alt="Detalhe de aplicação de cílios fio a fio sem excesso de peso por Alias Paiva" width="853"
               height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 17: Extensão de cílios com volume sutil e elegante">
+            aria-label="Ampliar foto 18: Extensão de cílios com volume sutil e elegante">
             <img src="images/Galeria17.jpeg" alt="Extensão de cílios com volume sutil e elegante por Alias Paiva"
               width="960" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 18: Extensão de cílios com fios coloridos vermelhos em destaque">
-            <img src="images/Galeria18.jpeg" alt="Extensão de cílios com fios coloridos vermelhos em destaque por Alias Paiva"
-              width="768" height="1024" loading="lazy" decoding="async">
+            aria-label="Ampliar foto 19: Extensão de cílios com fios coloridos vermelhos em destaque">
+            <img src="images/Galeria18.jpeg"
+              alt="Extensão de cílios com fios coloridos vermelhos em destaque por Alias Paiva" width="768"
+              height="1024" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 19: Design de olhar completo com cílios e sobrancelhas">
+            aria-label="Ampliar foto 20: Design de olhar completo com cílios e sobrancelhas">
             <img src="images/Galeria19.jpeg" alt="Design de olhar completo com cílios e sobrancelhas por Alias Paiva"
               width="720" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 20: Extensão de cílios e brow lamination natural">
+            aria-label="Ampliar foto 21: Extensão de cílios e brow lamination natural">
             <img src="images/Galeria20.jpeg" alt="Extensão de cílios e brow lamination natural por Alias Paiva"
               width="720" height="1280" loading="lazy" decoding="async">
           </div>
           <div class="gal-tile" role="button" tabindex="0"
-            aria-label="Ampliar foto 21: Transformação do olhar com extensão de cílios em Ipatinga">
+            aria-label="Ampliar foto 22: Transformação do olhar com extensão de cílios em Ipatinga">
             <img src="images/Galeria21.jpeg"
               alt="Transformação do olhar com extensão de cílios em Ipatinga por Alias Paiva" width="900" height="1600"
               loading="lazy" decoding="async">
           </div>
         </div>
 
-        <!-- Dots de navegação -->
-        <div class="scroller-dots" id="scrollerDots" aria-hidden="true">
-          <button class="dot active" tabindex="-1" aria-label="Foto 1"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 2"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 3"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 4"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 5"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 6"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 7"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 8"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 9"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 10"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 11"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 12"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 13"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 14"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 15"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 16"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 17"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 18"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 19"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 20"></button>
-          <button class="dot" tabindex="-1" aria-label="Foto 21"></button>
+        <!-- Navegação da galeria -->
+        <div class="scroller-controls" id="galControls">
+          <button type="button" class="scroller-btn scroller-prev" aria-label="Foto anterior">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#arrow-l" />
+            </svg>
+          </button>
+          <span class="scroller-count" aria-live="polite">1 / 22</span>
+          <button type="button" class="scroller-btn scroller-next" aria-label="Próxima foto">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#arrow-r" />
+            </svg>
+          </button>
         </div>
       </section>
 
@@ -885,7 +900,7 @@
           </svg>
         </button>
 
-        <div class="lb-counter" id="lbCounter" aria-live="polite">1 / 21</div>
+        <div class="lb-counter" id="lbCounter" aria-live="polite">1 / 22</div>
       </div>
 
       <!-- ── DEPOIMENTOS ── -->
@@ -1082,18 +1097,19 @@
 
         </div>
 
-        <!-- Dots de navegação dos depoimentos -->
-        <div class="scroller-dots" id="testiDots" aria-hidden="true">
-          <button class="dot active" tabindex="-1" aria-label="Avaliação 1"></button>
-          <button class="dot" tabindex="-1" aria-label="Avaliação 2"></button>
-          <button class="dot" tabindex="-1" aria-label="Avaliação 3"></button>
-          <button class="dot" tabindex="-1" aria-label="Avaliação 4"></button>
-          <button class="dot" tabindex="-1" aria-label="Avaliação 5"></button>
-          <button class="dot" tabindex="-1" aria-label="Avaliação 6"></button>
-          <button class="dot" tabindex="-1" aria-label="Avaliação 7"></button>
-          <button class="dot" tabindex="-1" aria-label="Avaliação 8"></button>
-          <button class="dot" tabindex="-1" aria-label="Avaliação 9"></button>
-          <button class="dot" tabindex="-1" aria-label="Avaliação 10"></button>
+        <!-- Navegação dos depoimentos -->
+        <div class="scroller-controls" id="testiControls">
+          <button type="button" class="scroller-btn scroller-prev" aria-label="Avaliação anterior">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#arrow-l" />
+            </svg>
+          </button>
+          <span class="scroller-count" aria-live="polite">1 / 10</span>
+          <button type="button" class="scroller-btn scroller-next" aria-label="Próxima avaliação">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#arrow-r" />
+            </svg>
+          </button>
         </div>
 
         <div class="wrap">
@@ -1114,7 +1130,7 @@
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 fill="#EA4335" />
             </svg>
-            <strong class="google-badge-score">★ 5.0</strong>
+            <strong class="google-badge-score"><span class="gb-star" aria-hidden="true">★</span> 5.0</strong>
             <span>· 76 avaliações verificadas no Google</span>
           </a>
         </div>
@@ -1128,12 +1144,12 @@
             <!-- Intro -->
             <div class="faq-intro reveal">
               <span class="section-label">FAQ</span>
-              <h2 id="faqTitle" class="section-title faq-title-gap">Perguntas<br>frequentes</h2>
+              <h2 id="faqTitle" class="section-title faq-title-gap">Perguntas frequentes</h2>
               <p class="faq-intro-p">
                 Tire suas dúvidas antes de agendar. E se ainda tiver alguma pergunta,
                 é só me chamar no WhatsApp — responderei rapidinho!
               </p>
-              <a class="btn btn-lilac" data-wa data-msg="duvida"
+              <a class="btn btn-plum" data-wa data-msg="duvida"
                 href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20%F0%9F%92%9C">
                 <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
                   <use href="#wa" />
@@ -1173,6 +1189,15 @@
               </details>
 
               <details class="faq-item">
+                <summary>O que está incluso no Curso VIP?</summary>
+                <div class="faq-body">
+                  O Curso VIP é presencial e individual em Ipatinga, com kit de treino incluso, prática guiada em
+                  modelo real, certificado oficial e suporte contínuo pós-curso. Me chame no WhatsApp para saber as
+                  próximas datas e condições.
+                </div>
+              </details>
+
+              <details class="faq-item">
                 <summary>Como funciona o agendamento?</summary>
                 <div class="faq-body">
                   Direto pelo WhatsApp! Você me chama, conversamos sobre a sua disponibilidade
@@ -1198,20 +1223,20 @@
 
     <section id="cta" aria-labelledby="ctaTitle">
       <div class="wrap reveal">
-        <h2 id="ctaTitle">Pronta para o seu <em>novo olhar?</em></h2>
-        <p>Agende agora pelo WhatsApp e dê o primeiro passo para se reconhecer ainda mais bonita.</p>
+        <h2 id="ctaTitle">Pronta para o seu <em>próximo passo?</em></h2>
+        <p>Agende seu horário no estúdio ou garanta sua vaga no Curso VIP presencial direto pelo WhatsApp.</p>
 
         <div class="cta-actions">
-          <a class="btn btn-primary btn-cta-lg" data-wa
+          <a class="btn btn-gold btn-cta-lg" data-wa
             href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C">
             <svg class="ico-wa ico-wa-lg" viewBox="0 0 24 24" aria-hidden="true">
               <use href="#wa" />
             </svg>
-            Chamar no WhatsApp
+            Agendar atendimento
           </a>
-          <a class="btn btn-ghost" href="https://www.instagram.com/_aliaspaiva/" target="_blank"
-            rel="noopener noreferrer">
-            Ver no Instagram
+          <a class="btn btn-ghost" data-wa data-msg="curso"
+            href="https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20saber%20datas%20e%20valores%20do%20Curso%20VIP%20de%20Extens%C3%A3o%20de%20C%C3%ADlios%20%F0%9F%92%9C">
+            Informações do Curso VIP
           </a>
         </div>
 

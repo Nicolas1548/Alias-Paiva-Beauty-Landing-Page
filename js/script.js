@@ -7,7 +7,10 @@
   var WA = 'https://api.whatsapp.com/send/?phone=553180142400&text=';
   var MSG = {
     agendar: 'Olá! Vim pelo site e quero agendar um horário \uD83D\uDC9C',
-    curso: 'Olá! Vim pelo site e quero minha vaga no Curso VIP de Extensão de Cílios \uD83D\uDC9C',
+    cilios: 'Olá! Vim pelo site e quero agendar Extensão de Cílios Fio a Fio \uD83D\uDC9C',
+    sobrancelhas: 'Olá! Vim pelo site e quero agendar Design de Sobrancelhas \uD83D\uDC9C',
+    brow: 'Olá! Vim pelo site e quero agendar Brow Lamination \uD83D\uDC9C',
+    curso: 'Olá! Vim pelo site e quero saber datas e valores do Curso VIP de Extensão de Cílios \uD83D\uDC9C',
     duvida: 'Olá! Vim pelo site e gostaria de tirar uma dúvida \uD83D\uDC9C'
   };
 
@@ -247,20 +250,24 @@
   }
 
   /* ─────────────────────────────────────────────────
-     5. Galeria & Avaliações — Dots, Drag-to-Scroll e Efeito de Foco
+     5. Galeria & Avaliações — Setas, Contador, Drag e Foco
      ───────────────────────────────────────────────── */
   var scroller = document.getElementById('galScroller');
   var tiles = scroller ? scroller.querySelectorAll('.gal-tile') : [];
   var hasMoved = false;
 
-  function initHorizontalScroller(scrollerEl, dotsSelector, itemSelector, onDragStateChange) {
+  function initHorizontalScroller(scrollerEl, controlsSelector, itemSelector, onDragStateChange) {
     if (!scrollerEl) return;
-    var dotsList = document.querySelectorAll(dotsSelector);
+    var controlsEl = document.querySelector(controlsSelector);
     var items = scrollerEl.querySelectorAll(itemSelector);
-    if (!dotsList.length || !items.length) return;
+    if (!controlsEl || !items.length) return;
+
+    var prevBtn = controlsEl.querySelector('.scroller-prev');
+    var nextBtn = controlsEl.querySelector('.scroller-next');
+    var countEl = controlsEl.querySelector('.scroller-count');
 
     var itemOffsets = [];
-    var prevActiveDot = -1;
+    var activeIndex = -1;
 
     function cacheItemOffsets() {
       var baseLeft = scrollerEl.offsetLeft;
@@ -273,7 +280,7 @@
     cacheItemOffsets();
     window.addEventListener('resize', cacheItemOffsets, { passive: true });
 
-    function updateDots() {
+    function updateControls() {
       if (!itemOffsets.length) cacheItemOffsets();
       var scrollLeft = scrollerEl.scrollLeft;
       var active = 0;
@@ -285,31 +292,42 @@
           active = i;
         }
       }
-      if (active === prevActiveDot) return;
-      prevActiveDot = active;
+      if (active === activeIndex) return;
+      activeIndex = active;
 
-      dotsList.forEach(function (dot, idx) {
-        dot.classList.toggle('active', idx === active);
-      });
+      if (countEl) {
+        countEl.textContent = (active + 1) + ' / ' + items.length;
+      }
+      if (prevBtn) prevBtn.disabled = active === 0;
+      if (nextBtn) nextBtn.disabled = active === items.length - 1;
+
       items.forEach(function (item, idx) {
         item.classList.toggle('is-centered', idx === active);
       });
     }
 
-    scrollerEl.addEventListener('scroll', updateDots, { passive: true });
-    updateDots();
-
-    dotsList.forEach(function (dot, i) {
-      dot.addEventListener('click', function () {
-        if (items[i]) {
-          if (!itemOffsets.length) cacheItemOffsets();
-          scrollerEl.scrollTo({
-            left: itemOffsets[i],
-            behavior: 'smooth'
-          });
-        }
+    function scrollToIndex(idx) {
+      var targetIdx = Math.max(0, Math.min(items.length - 1, idx));
+      if (!itemOffsets.length) cacheItemOffsets();
+      scrollerEl.scrollTo({
+        left: itemOffsets[targetIdx],
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
       });
-    });
+    }
+
+    scrollerEl.addEventListener('scroll', updateControls, { passive: true });
+    updateControls();
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        scrollToIndex(activeIndex - 1);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        scrollToIndex(activeIndex + 1);
+      });
+    }
 
     // Arrasto com mouse (Drag & Momentum) para Desktop
     var isDragging = false;
@@ -344,22 +362,14 @@
         setTimeout(function () { onDragStateChange(false); }, 80);
       }
     });
-
-    // Rolagem horizontal natural com a roda do mouse
-    scrollerEl.addEventListener('wheel', function (e) {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        scrollerEl.scrollLeft += e.deltaY * 0.9;
-      }
-    }, { passive: false });
   }
 
-  initHorizontalScroller(scroller, '#scrollerDots .dot', '.gal-tile', function (moved) {
+  initHorizontalScroller(scroller, '#galControls', '.gal-tile', function (moved) {
     hasMoved = moved;
   });
 
   var testiScroller = document.getElementById('testiScroller');
-  initHorizontalScroller(testiScroller, '#testiDots .dot', '.testi-card', null);
+  initHorizontalScroller(testiScroller, '#testiControls', '.testi-card', null);
 
   /* ─────────────────────────────────────────────────
      6. Curso VIP — Storytelling e Highlight com Scroll
@@ -518,5 +528,20 @@
       }
     });
   });
+
+  /* ─────────────────────────────────────────────────
+     9. WhatsApp flutuante — exibe só após o hero
+     ───────────────────────────────────────────────── */
+  var waFloat = document.querySelector('.whatsapp-float');
+  if (waFloat && heroSection) {
+    if ('IntersectionObserver' in window) {
+      var waObserver = new IntersectionObserver(function (entries) {
+        waFloat.classList.toggle('visible', !entries[0].isIntersecting);
+      }, { threshold: 0.15 });
+      waObserver.observe(heroSection);
+    } else {
+      waFloat.classList.add('visible');
+    }
+  }
 
 })();
