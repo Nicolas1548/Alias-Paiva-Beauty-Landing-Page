@@ -29,7 +29,7 @@ A identidade visual segue a marca: **lilás e dourado**, tom delicado e acolhedo
 | Seção | O que apresenta |
 |-------|-----------------|
 | **Hero** | Promessa da marca, botão de agendamento e link para o Instagram |
-| **Sobre** | O estúdio como espaço de pausa, cuidado e transformação no bairro Ideal (desde 2021) |
+| **Sobre** | O estúdio como espaço de pausa, cuidado e transformação no bairro Canaã (desde 2021) |
 | **Serviços** | Extensão de Cílios (Fio a Fio & Efeito Fox), Design de Sobrancelhas e Brow Lamination |
 | **Curso VIP** | Formação presencial em Ipatinga, do zero à agenda cheia |
 | **Galeria** | Trabalhos reais feitos no estúdio (com Lightbox acessível) |
@@ -109,7 +109,7 @@ Java é a minha linguagem principal, e este projeto mostra o lado front-end do q
 
 ## 📍 Contato da marca
 
-- Endereço: R. Manoel Izídio, 1589 - apt 102 - Ideal, Ipatinga - MG, 35162-200
+- Endereço: Av. Selim José de Sales, 1435 - Sala 103 - Canaã, Ipatinga - MG, 35164-501
 - Instagram: [@_aliaspaiva](https://www.instagram.com/_aliaspaiva/)
 - WhatsApp: [agendar horário](https://api.whatsapp.com/send/?phone=553180142400&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9C)
 - Avaliações: [Google (★ 5.0 · 75 avaliações)](https://share.google/0OluDglXw7XC698mP)
